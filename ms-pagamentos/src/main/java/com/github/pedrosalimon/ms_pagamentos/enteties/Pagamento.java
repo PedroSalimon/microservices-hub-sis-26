@@ -31,6 +31,6 @@ public class Pagamento {
     @Enumerated(EnumType.STRING)
     private Status status;
     @Column(nullable = false)
-    private Long pedidoId;
+    private Long idPedido;
 
 }

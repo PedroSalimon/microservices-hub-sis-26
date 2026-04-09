@@ -1,0 +1,2 @@
+INSERT INTO tb_pagamento(valor, nome, numero_cartao, validade, cvv, status, id_pedido) VALUES (790.0, 'Jon Snow', '1234567891234567', '12/30', '589', 'CRIADO', 1)
+INSERT INTO tb_pagamento(valor, nome, numero_cartao, validade, cvv, status, id_pedido) VALUES (3599.0, 'Ayra Stark', '9876543219876543', '01/28', '389', 'CRIADO', 2)
