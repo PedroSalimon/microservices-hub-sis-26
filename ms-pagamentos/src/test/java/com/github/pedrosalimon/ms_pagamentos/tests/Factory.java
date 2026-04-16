@@ -9,12 +9,12 @@ public class Factory {
 
     public static Pagamento createPagamento() {
         Pagamento pagamento = new Pagamento(1L, BigDecimal.valueOf(32.25),
-                "Briannede Tarth", "7418529637412",
+                "Briannede Tarth", "7418529637423612",
                 "07/15", "345", Status.CRIADO, 1L);
         return pagamento;
     }
     public static Pagamento createPagamentoSemId() {
-        Pagamento pagamento = new Pagamento();
+        Pagamento pagamento = createPagamento();
         pagamento.setId(null);
         return pagamento;
     }
