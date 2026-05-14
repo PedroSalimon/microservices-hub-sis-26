@@ -3,6 +3,7 @@ package com.github.cidarosa.ms.pedidos.controller;
 import com.github.cidarosa.ms.pedidos.dto.PedidoDto;
 import com.github.cidarosa.ms.pedidos.service.PedidoService;
 import jakarta.validation.Valid;
+import jakarta.ws.rs.Path;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -64,5 +65,9 @@ public class PedidoController {
         return ResponseEntity.noContent().build();
     }
 
+    @PutMapping("/{pedidoId}/pagamento/confirmado")
+    public void confirmarPagamento(@PathVariable Long pedidoId){
+        pedidoService.confirmarPagamento(pedidoId);
+    }
 
 }

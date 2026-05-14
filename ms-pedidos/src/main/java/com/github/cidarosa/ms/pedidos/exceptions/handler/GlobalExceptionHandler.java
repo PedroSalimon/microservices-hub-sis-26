@@ -1,6 +1,8 @@
 package com.github.cidarosa.ms.pedidos.exceptions.handler;
 
+import com.github.cidarosa.ms.pedidos.controller.PedidoController;
 import com.github.cidarosa.ms.pedidos.exceptions.DatabaseException;
+import com.github.cidarosa.ms.pedidos.exceptions.PedidoPagoException;
 import com.github.cidarosa.ms.pedidos.exceptions.ResourceNotFoundException;
 import com.github.cidarosa.ms.pedidos.exceptions.dto.CustomErrorDTO;
 import com.github.cidarosa.ms.pedidos.exceptions.dto.ValidationErrorDTO;
@@ -87,6 +89,15 @@ public class GlobalExceptionHandler {
                 request.getRequestURI()
         );
 
+        return ResponseEntity.status(status).body(err);
+    }
+
+    @ExceptionHandler(PedidoPagoException.class)
+    public ResponseEntity<CustomErrorDTO> handlePedidoPago (PedidoPagoException e,
+                                                            HttpServletRequest request) {
+        HttpStatus status = HttpStatus.CONFLICT;
+        CustomErrorDTO err = new CustomErrorDTO(Instant.now(), status.value(),
+                e.getMessage(), request.getRequestURI());
         return ResponseEntity.status(status).body(err);
     }
 }

@@ -1,6 +1,7 @@
 package com.github.pedrosalimon.ms_pagamentos.exceptions.handler;
 
 import com.github.pedrosalimon.ms_pagamentos.exceptions.DatabaseException;
+import com.github.pedrosalimon.ms_pagamentos.exceptions.PagamentoAprovadoException;
 import com.github.pedrosalimon.ms_pagamentos.exceptions.ResourceNotFoundException;
 import com.github.pedrosalimon.ms_pagamentos.exceptions.dto.CustomErrorDTO;
 import com.github.pedrosalimon.ms_pagamentos.exceptions.dto.ValidationErrorDTO;
@@ -73,6 +74,15 @@ public class GlobalExceptionHandler {
         CustomErrorDTO err = new CustomErrorDTO(Instant.now(), status.value(),
                 e.getMessage(), request.getRequestURI());
 
+        return ResponseEntity.status(status).body(err);
+    }
+
+    @ExceptionHandler(PagamentoAprovadoException.class)
+    public ResponseEntity<CustomErrorDTO> handlePagamentoAprovado(PagamentoAprovadoException e,
+                                                                  HttpServletRequest request) {
+        HttpStatus status = HttpStatus.CONFLICT;
+        CustomErrorDTO err = new CustomErrorDTO(Instant.now(), status.value(),
+                e.getMessage(), request.getRequestURI());
         return ResponseEntity.status(status).body(err);
     }
 

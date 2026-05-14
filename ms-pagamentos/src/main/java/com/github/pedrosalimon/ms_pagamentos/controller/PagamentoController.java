@@ -3,6 +3,7 @@ package com.github.pedrosalimon.ms_pagamentos.controller;
 import com.github.pedrosalimon.ms_pagamentos.dto.PagamentoDTO;
 import com.github.pedrosalimon.ms_pagamentos.service.PagamentoService;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -56,5 +57,12 @@ public class PagamentoController {
     private ResponseEntity<Void> deletePagamento (@PathVariable Long id) {
         pagamentoService.deletePagamento(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PatchMapping("/{id}/confirmar")
+    public ResponseEntity<PagamentoDTO> confirmarPagamentoDoPedido(@PathVariable
+                                                                   @NotNull Long id) {
+        PagamentoDTO dto = pagamentoService.confirmarPagamentoDoPedido(id);
+        return ResponseEntity.ok(dto);
     }
 }

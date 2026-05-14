@@ -5,6 +5,7 @@ import com.github.cidarosa.ms.pedidos.dto.PedidoDto;
 import com.github.cidarosa.ms.pedidos.entities.ItemDoPedido;
 import com.github.cidarosa.ms.pedidos.entities.Pedido;
 import com.github.cidarosa.ms.pedidos.entities.Status;
+import com.github.cidarosa.ms.pedidos.exceptions.PedidoPagoException;
 import com.github.cidarosa.ms.pedidos.exceptions.ResourceNotFoundException;
 import com.github.cidarosa.ms.pedidos.repositories.ItemDoPedidoRepository;
 import com.github.cidarosa.ms.pedidos.repositories.PedidoRepository;
@@ -16,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PedidoService {
@@ -55,9 +57,17 @@ public class PedidoService {
     public PedidoDto updatePedido (Long id, PedidoDto pedidoDto) {
         try {
             Pedido pedido = pedidoRepository.getReferenceById(id);
+
+            if (pedido.getStatus().equals(Status.PAGO)){
+                throw new PedidoPagoException(
+                        String.format("Pedido id %id já está PAGO e " +
+                                "não pode ser alterado", id)
+                );
+            }
+
             pedido.getItens().clear();
             pedido.setData(LocalDate.now());
-            pedido.setStatus(Status.CRIADO);
+            //pedido.setStatus(Status.CRIADO);
             mapDtoToPedido(pedidoDto, pedido);
             pedido.calcularValorTotalDoPedido();
             pedido = pedidoRepository.save(pedido);
@@ -87,5 +97,15 @@ public class PedidoService {
             itemPedido.setPedido(pedido);
             pedido.getItens().add(itemPedido);
         }
+    }
+
+    @Transactional
+    public void confirmarPagamento(Long id) {
+        Optional<Pedido> pedido = pedidoRepository.findById(id);
+        if (pedido.isEmpty()){
+            throw new ResourceNotFoundException("Pedido não encontrado. ID: " +  id);
+        }
+        pedido.get().setStatus(Status.PAGO);
+        pedidoRepository.save(pedido.get());
     }
 }
