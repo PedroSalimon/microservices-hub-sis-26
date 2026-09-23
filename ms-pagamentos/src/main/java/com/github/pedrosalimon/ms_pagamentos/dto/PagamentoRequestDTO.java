@@ -1,4 +1,4 @@
-package com.github.pedrosalimon.ms.pagamentos.dto;
+package com.github.pedrosalimon.ms_pagamentos.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

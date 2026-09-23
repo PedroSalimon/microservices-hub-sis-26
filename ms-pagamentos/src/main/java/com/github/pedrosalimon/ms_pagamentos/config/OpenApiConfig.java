@@ -1,4 +1,4 @@
-package com.github.pedrosalimon.ms.pagamentos.config;
+package com.github.pedrosalimon.ms_pagamentos.config;
 
 import io.swagger.v3.oas.models.servers.Server;
 import io.swagger.v3.oas.models.info.Info;

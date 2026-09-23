@@ -1,8 +1,8 @@
-package com.github.pedrosalimon.ms.pagamentos.controller;
+package com.github.pedrosalimon.ms_pagamentos.controller;
 
-import com.github.pedrosalimon.ms.pagamentos.dto.PagamentoRequestDTO;
-import com.github.pedrosalimon.ms.pagamentos.dto.PagamentoResponseDTO;
-import com.github.pedrosalimon.ms.pagamentos.service.PagamentoService;
+import com.github.pedrosalimon.ms_pagamentos.dto.PagamentoRequestDTO;
+import com.github.pedrosalimon.ms_pagamentos.dto.PagamentoResponseDTO;
+import com.github.pedrosalimon.ms_pagamentos.service.PagamentoService;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;

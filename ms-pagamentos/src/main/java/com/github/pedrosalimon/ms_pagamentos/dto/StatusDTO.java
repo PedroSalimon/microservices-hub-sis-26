@@ -1,6 +1,6 @@
-package com.github.pedrosalimon.ms.pagamentos.dto;
+package com.github.pedrosalimon.ms_pagamentos.dto;
 
-import com.github.pedrosalimon.ms.pagamentos.entities.Status;
+import com.github.pedrosalimon.ms_pagamentos.entities.Status;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

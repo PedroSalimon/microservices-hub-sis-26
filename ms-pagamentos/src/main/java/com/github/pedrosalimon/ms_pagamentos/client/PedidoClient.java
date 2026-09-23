@@ -1,4 +1,4 @@
-package com.github.pedrosalimon.ms.pagamentos.client;
+package com.github.pedrosalimon.ms_pagamentos.client;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;

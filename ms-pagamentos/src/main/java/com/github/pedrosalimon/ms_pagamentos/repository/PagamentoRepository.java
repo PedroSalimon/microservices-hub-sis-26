@@ -1,6 +1,6 @@
-package com.github.pedrosalimon.ms.pagamentos.repository;
+package com.github.pedrosalimon.ms_pagamentos.repository;
 
-import com.github.pedrosalimon.ms.pagamentos.entities.Pagamento;
+import com.github.pedrosalimon.ms_pagamentos.entities.Pagamento;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface PagamentoRepository extends JpaRepository<Pagamento, Long> {

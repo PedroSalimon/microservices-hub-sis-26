@@ -1,13 +1,13 @@
-package com.github.pedrosalimon.ms.pagamentos.service;
+package com.github.pedrosalimon.ms_pagamentos.service;
 
-import com.github.pedrosalimon.ms.pagamentos.client.PedidoClient;
-import com.github.pedrosalimon.ms.pagamentos.dto.PagamentoRequestDTO;
-import com.github.pedrosalimon.ms.pagamentos.dto.PagamentoResponseDTO;
-import com.github.pedrosalimon.ms.pagamentos.entities.Pagamento;
-import com.github.pedrosalimon.ms.pagamentos.entities.Status;
-import com.github.pedrosalimon.ms.pagamentos.exceptions.PagamentoAprovadoException;
-import com.github.pedrosalimon.ms.pagamentos.exceptions.ResourceNotFoundException;
-import com.github.pedrosalimon.ms.pagamentos.repository.PagamentoRepository;
+import com.github.pedrosalimon.ms_pagamentos.client.PedidoClient;
+import com.github.pedrosalimon.ms_pagamentos.dto.PagamentoRequestDTO;
+import com.github.pedrosalimon.ms_pagamentos.dto.PagamentoResponseDTO;
+import com.github.pedrosalimon.ms_pagamentos.entities.Pagamento;
+import com.github.pedrosalimon.ms_pagamentos.entities.Status;
+import com.github.pedrosalimon.ms_pagamentos.exceptions.PagamentoAprovadoException;
+import com.github.pedrosalimon.ms_pagamentos.exceptions.ResourceNotFoundException;
+import com.github.pedrosalimon.ms_pagamentos.repository.PagamentoRepository;
 import feign.FeignException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
