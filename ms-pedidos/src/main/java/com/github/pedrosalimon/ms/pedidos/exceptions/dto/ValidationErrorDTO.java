@@ -1,4 +1,4 @@
-package com.github.pedrosalimon.ms.pagamentos.exceptions.dto;
+package com.github.pedrosalimon.ms.pedidos.exceptions.dto;
 
 import lombok.Getter;
 

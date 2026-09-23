@@ -1,4 +1,4 @@
-package com.github.pedrosalimon.ms.pagamentos.exceptions;
+package com.github.pedrosalimon.ms.pedidos.exceptions;
 
 public class ResourceNotFoundException extends RuntimeException{
 

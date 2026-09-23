@@ -1,4 +1,4 @@
-package com.github.cidarosa.ms.pedidos;
+package com.github.pedrosalimon.ms.pedidos;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

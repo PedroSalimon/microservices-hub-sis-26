@@ -1,11 +1,10 @@
-package com.github.pedrosalimon.ms.pagamentos.exceptions.handler;
+package com.github.pedrosalimon.ms.pedidos.exceptions.handler;
 
-import com.github.pedrosalimon.ms.pagamentos.entities.Pagamento;
-import com.github.pedrosalimon.ms.pagamentos.exceptions.DatabaseException;
-import com.github.pedrosalimon.ms.pagamentos.exceptions.PagamentoAprovadoException;
-import com.github.pedrosalimon.ms.pagamentos.exceptions.ResourceNotFoundException;
-import com.github.pedrosalimon.ms.pagamentos.exceptions.dto.CustomErrorDTO;
-import com.github.pedrosalimon.ms.pagamentos.exceptions.dto.ValidationErrorDTO;
+import com.github.pedrosalimon.ms.pedidos.exceptions.DatabaseException;
+import com.github.pedrosalimon.ms.pedidos.exceptions.PedidoPagoException;
+import com.github.pedrosalimon.ms.pedidos.exceptions.ResourceNotFoundException;
+import com.github.pedrosalimon.ms.pedidos.exceptions.dto.CustomErrorDTO;
+import com.github.pedrosalimon.ms.pedidos.exceptions.dto.ValidationErrorDTO;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,10 +29,11 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity.status(status).body(err);
     }
-    @ExceptionHandler(PagamentoAprovadoException.class)
-    public ResponseEntity<CustomErrorDTO> handlePagamentoAprovado(PagamentoAprovadoException e,
-                                                                  HttpServletRequest request){
-        HttpStatus status=HttpStatus.CONFLICT;
+
+    @ExceptionHandler(PedidoPagoException.class)
+    public ResponseEntity<CustomErrorDTO> handlePedidoPago(PedidoPagoException e,
+                                                                 HttpServletRequest request) {
+        HttpStatus status = HttpStatus.CONFLICT;
         CustomErrorDTO err = new CustomErrorDTO(Instant.now(), status.value(),
                 e.getMessage(), request.getRequestURI());
 
