@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS tb_pedidos (
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    cpf VARCHAR(11),
+    data DATE,
+
+)
